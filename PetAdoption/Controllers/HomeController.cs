@@ -26,5 +26,11 @@ namespace PetAdoption.Controllers
 
             return View();
         }
+
+        public ActionResult Login()
+        {
+            ViewBag.Title = "Autenticação";
+            return View();
+        }
     }
 }
