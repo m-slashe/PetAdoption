@@ -10,5 +10,11 @@ namespace PetAdoption.Models
     {
         public DatabaseContext(): base("name=DatabaseContext"){}
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Pet> Pet { get; set; }
+        public DbSet<Raca> Raca { get; set; }
+        public DbSet<Especie> Especie { get; set; }
+        public DbSet<Abrigo> Abrigo { get; set; }
+        public DbSet<Porte> Porte { get; set; }
+        public DbSet<Sexo> Sexo { get; set; }
     }
 }

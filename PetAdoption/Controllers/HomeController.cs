@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetAdoption.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,9 @@ namespace PetAdoption.Controllers
 {
     public class HomeController : Controller
     {
+
+        DatabaseContext db = new DatabaseContext();
+
         public ActionResult Index()
         {
             return View();
@@ -31,6 +35,13 @@ namespace PetAdoption.Controllers
         {
             ViewBag.Title = "Autenticação";
             return View();
+        }
+
+        public ActionResult Usuario()
+        {
+            ViewBag.Title = "Usuario";
+            var usuarios = db.Usuario.ToList();
+            return View(usuarios);
         }
     }
 }

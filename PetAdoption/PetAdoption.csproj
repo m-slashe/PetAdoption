@@ -136,11 +136,27 @@
     <Compile Include="Controllers\GestaoCookie.cs" />
     <Compile Include="Controllers\GestaoUsuario.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RacasController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906042343108_InitialCreate.cs" />
+    <Compile Include="Migrations\201906042343108_InitialCreate.Designer.cs">
+      <DependentUpon>201906042343108_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906050011094_Teste.cs" />
+    <Compile Include="Migrations\201906050011094_Teste.Designer.cs">
+      <DependentUpon>201906050011094_Teste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Abrigo.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
+    <Compile Include="Models\Especie.cs" />
+    <Compile Include="Models\Pet.cs" />
+    <Compile Include="Models\Porte.cs" />
     <Compile Include="Models\Raca.cs" />
+    <Compile Include="Models\Sexo.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -183,6 +199,13 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\Racas\Create.cshtml" />
+    <Content Include="Views\Racas\Delete.cshtml" />
+    <Content Include="Views\Racas\Details.cshtml" />
+    <Content Include="Views\Racas\Edit.cshtml" />
+    <Content Include="Views\Racas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -200,6 +223,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201906042343108_InitialCreate.resx">
+      <DependentUpon>201906042343108_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906050011094_Teste.resx">
+      <DependentUpon>201906050011094_Teste.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

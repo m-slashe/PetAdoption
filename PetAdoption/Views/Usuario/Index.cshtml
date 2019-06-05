@@ -1,0 +1,24 @@
+﻿@model IEnumerable<PetAdoption.Models.Usuario>
+
+@{
+    ViewBag.Title = "Usuario";
+}
+
+<h2>Usuarios</h2>
+<p>
+    @Html.ActionLink("Novo", "Create")
+</p>
+<table>
+       <tr>
+           <th>
+               @Html.DisplayNameFor(model => model.Login)
+           </th>
+       </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>Teste</td>
+            <td>Seila</td>
+        </tr>
+    }
+</table>
