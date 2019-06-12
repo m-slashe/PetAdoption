@@ -8,14 +8,14 @@ using System.Web.Mvc;
 
 namespace PetAdoption.Controllers
 {
-    public class UsuarioController : Controller
+    public class RacaController : Controller
     {
 
         PetAdoptionContextEntities1 db = new PetAdoptionContextEntities1();
 
         public ActionResult Index()
         {
-            return View(db.Usuario.ToList());
+            return View(db.Raca.ToList());
         }
 
         public ActionResult Create()
@@ -24,67 +24,68 @@ namespace PetAdoption.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Usuario usuario)
+        public ActionResult Create(Raca raca)
         {
             if (ModelState.IsValid)
             {
-                db.Usuario.Add(usuario);
+                db.Raca.Add(raca);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(usuario);
+            return View(raca);
         }
 
         public ActionResult Edit(int? id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            Raca raca = db.Raca.Find(id);
+            if (raca == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(raca);
         }
 
         [HttpPost]
-        public ActionResult Edit(Usuario usuario)
+        public ActionResult Edit(Raca raca)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuario).State = EntityState.Modified;
+                db.Entry(raca).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(usuario);
+            return View(raca);
         }
 
         public ActionResult Delete(int? id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            Raca raca = db.Raca.Find(id);
+            if (raca == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(raca);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            db.Usuario.Remove(usuario);
+            Raca raca = db.Raca.Find(id);
+            db.Raca.Remove(raca);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult Details(int? id)
         {
-            var usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            var raca = db.Raca.Find(id);
+            if (raca == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(raca);
         }
+
     }
 }

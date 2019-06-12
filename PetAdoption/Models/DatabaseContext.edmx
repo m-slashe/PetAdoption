@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PetAdoptionContextModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Abrigo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Especie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Pet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataDeNascimento" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="Sexo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Historia" Type="nvarchar(max)" />
+          <Property Name="IdRaca" Type="int" />
+          <Property Name="IdEspecie" Type="int" />
+          <Property Name="IdPorte" Type="int" />
+          <Property Name="IdAbrigo" Type="int" />
+        </EntityType>
+        <EntityType Name="Porte">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Raca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Senha" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__Pet__IdAbrigo__21B6055D">
+          <End Role="Abrigo" Type="Self.Abrigo" Multiplicity="0..1" />
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abrigo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="IdAbrigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pet__IdEspecie__1FCDBCEB">
+          <End Role="Especie" Type="Self.Especie" Multiplicity="0..1" />
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="IdEspecie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pet__IdPorte__20C1E124">
+          <End Role="Porte" Type="Self.Porte" Multiplicity="0..1" />
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Porte">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="IdPorte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pet__IdRaca__1ED998B2">
+          <End Role="Raca" Type="Self.Raca" Multiplicity="0..1" />
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Raca">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="IdRaca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PetAdoptionContextModelStoreContainer">
+          <EntitySet Name="Abrigo" EntityType="Self.Abrigo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Especie" EntityType="Self.Especie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pet" EntityType="Self.Pet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Porte" EntityType="Self.Porte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Raca" EntityType="Self.Raca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Pet__IdAbrigo__21B6055D" Association="Self.FK__Pet__IdAbrigo__21B6055D">
+            <End Role="Abrigo" EntitySet="Abrigo" />
+            <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pet__IdEspecie__1FCDBCEB" Association="Self.FK__Pet__IdEspecie__1FCDBCEB">
+            <End Role="Especie" EntitySet="Especie" />
+            <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pet__IdPorte__20C1E124" Association="Self.FK__Pet__IdPorte__20C1E124">
+            <End Role="Porte" EntitySet="Porte" />
+            <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pet__IdRaca__1ED998B2" Association="Self.FK__Pet__IdRaca__1ED998B2">
+            <End Role="Raca" EntitySet="Raca" />
+            <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PetAdoptionContextModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Abrigo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdAbrigo__21B6055D" FromRole="Abrigo" ToRole="Pet" />
+        </EntityType>
+        <EntityType Name="Especie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdEspecie__1FCDBCEB" FromRole="Especie" ToRole="Pet" />
+        </EntityType>
+        <EntityType Name="Pet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataDeNascimento" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Historia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdRaca" Type="Int32" />
+          <Property Name="IdEspecie" Type="Int32" />
+          <Property Name="IdPorte" Type="Int32" />
+          <Property Name="IdAbrigo" Type="Int32" />
+          <NavigationProperty Name="Abrigo" Relationship="Self.FK__Pet__IdAbrigo__21B6055D" FromRole="Pet" ToRole="Abrigo" />
+          <NavigationProperty Name="Especie" Relationship="Self.FK__Pet__IdEspecie__1FCDBCEB" FromRole="Pet" ToRole="Especie" />
+          <NavigationProperty Name="Porte" Relationship="Self.FK__Pet__IdPorte__20C1E124" FromRole="Pet" ToRole="Porte" />
+          <NavigationProperty Name="Raca" Relationship="Self.FK__Pet__IdRaca__1ED998B2" FromRole="Pet" ToRole="Raca" />
+        </EntityType>
+        <EntityType Name="Porte">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdPorte__20C1E124" FromRole="Porte" ToRole="Pet" />
+        </EntityType>
+        <EntityType Name="Raca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdRaca__1ED998B2" FromRole="Raca" ToRole="Pet" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Senha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__Pet__IdAbrigo__21B6055D">
+          <End Role="Abrigo" Type="Self.Abrigo" Multiplicity="0..1" />
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abrigo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="IdAbrigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pet__IdEspecie__1FCDBCEB">
+          <End Role="Especie" Type="Self.Especie" Multiplicity="0..1" />
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="IdEspecie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pet__IdPorte__20C1E124">
+          <End Role="Porte" Type="Self.Porte" Multiplicity="0..1" />
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Porte">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="IdPorte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pet__IdRaca__1ED998B2">
+          <End Role="Raca" Type="Self.Raca" Multiplicity="0..1" />
+          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Raca">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pet">
+              <PropertyRef Name="IdRaca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PetAdoptionContextEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abrigo" EntityType="Self.Abrigo" />
+          <EntitySet Name="Especie" EntityType="Self.Especie" />
+          <EntitySet Name="Pet" EntityType="Self.Pet" />
+          <EntitySet Name="Porte" EntityType="Self.Porte" />
+          <EntitySet Name="Raca" EntityType="Self.Raca" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK__Pet__IdAbrigo__21B6055D" Association="Self.FK__Pet__IdAbrigo__21B6055D">
+            <End Role="Abrigo" EntitySet="Abrigo" />
+            <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pet__IdEspecie__1FCDBCEB" Association="Self.FK__Pet__IdEspecie__1FCDBCEB">
+            <End Role="Especie" EntitySet="Especie" />
+            <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pet__IdPorte__20C1E124" Association="Self.FK__Pet__IdPorte__20C1E124">
+            <End Role="Porte" EntitySet="Porte" />
+            <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pet__IdRaca__1ED998B2" Association="Self.FK__Pet__IdRaca__1ED998B2">
+            <End Role="Raca" EntitySet="Raca" />
+            <End Role="Pet" EntitySet="Pet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PetAdoptionContextModelStoreContainer" CdmEntityContainer="PetAdoptionContextEntities1">
+          <EntitySetMapping Name="Abrigo">
+            <EntityTypeMapping TypeName="PetAdoptionContextModel.Abrigo">
+              <MappingFragment StoreEntitySet="Abrigo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Especie">
+            <EntityTypeMapping TypeName="PetAdoptionContextModel.Especie">
+              <MappingFragment StoreEntitySet="Especie">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pet">
+            <EntityTypeMapping TypeName="PetAdoptionContextModel.Pet">
+              <MappingFragment StoreEntitySet="Pet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="DataDeNascimento" ColumnName="DataDeNascimento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Historia" ColumnName="Historia" />
+                <ScalarProperty Name="IdRaca" ColumnName="IdRaca" />
+                <ScalarProperty Name="IdEspecie" ColumnName="IdEspecie" />
+                <ScalarProperty Name="IdPorte" ColumnName="IdPorte" />
+                <ScalarProperty Name="IdAbrigo" ColumnName="IdAbrigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Porte">
+            <EntityTypeMapping TypeName="PetAdoptionContextModel.Porte">
+              <MappingFragment StoreEntitySet="Porte">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Raca">
+            <EntityTypeMapping TypeName="PetAdoptionContextModel.Raca">
+              <MappingFragment StoreEntitySet="Raca">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="PetAdoptionContextModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

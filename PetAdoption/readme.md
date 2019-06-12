@@ -23,3 +23,52 @@ Porte
 Usuario
 	Nome
 	Senha
+	
+CREATE TABLE [dbo].[Usuario]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Nome] NVARCHAR(50) NULL,
+	[Email] NVARCHAR(50) NULL,
+	[Senha] NVARCHAR(50) NULL
+)
+
+CREATE TABLE [dbo].[Raca]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Nome] NVARCHAR(50) NULL
+)
+
+CREATE TABLE [dbo].[Especie]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Nome] NVARCHAR(50) NULL
+)
+
+CREATE TABLE [dbo].[Abrigo]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Nome] NVARCHAR(50) NULL
+)
+
+CREATE TABLE [dbo].[Porte]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Nome] NVARCHAR(50) NULL
+)
+
+CREATE TABLE [dbo].[Pet]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Nome] NVARCHAR(50) NULL,
+	[DataDeNascimento] TIMESTAMP NULL,
+	[Sexo] NVARCHAR(50) NULL,
+	[Historia] NVARCHAR(MAX) NULL,
+	[IdRaca] INT NULL,
+	[IdEspecie] INT NULL,
+	[IdPorte] INT NULL,
+	[IdAbrigo] INT NULL,
+	FOREIGN KEY (IdRaca) REFERENCES [Raca](Id),
+	FOREIGN KEY (IdEspecie) REFERENCES [Especie](Id),
+	FOREIGN KEY (IdPorte) REFERENCES [Porte](Id),
+	FOREIGN KEY (IdAbrigo) REFERENCES [Abrigo](Id),
+)

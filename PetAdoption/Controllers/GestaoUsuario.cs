@@ -7,12 +7,12 @@ namespace PetAdoption.Controllers
     internal class GestaoUsuario
     {
 
-        public static bool VerificarUsuarioBD(string login, string senha)
+        public static bool VerificarUsuarioBD(string email, string senha)
         {
             try
             {
-                DatabaseContext db = new DatabaseContext();
-                var usuario = db.Usuario.Where(x => x.Login == login && x.Senha == senha).SingleOrDefault();
+                PetAdoptionContextEntities1 db = new PetAdoptionContextEntities1();
+                var usuario = db.Usuario.Where(x => x.Email == email && x.Senha == senha).SingleOrDefault();
                 if(usuario == null)
                 {
                     return false;

@@ -10,7 +10,7 @@ namespace PetAdoption.Controllers
     public class HomeController : Controller
     {
 
-        DatabaseContext db = new DatabaseContext();
+        PetAdoptionContextEntities1 db = new PetAdoptionContextEntities1();
 
         public ActionResult Index()
         {

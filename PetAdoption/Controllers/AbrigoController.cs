@@ -8,14 +8,13 @@ using System.Web.Mvc;
 
 namespace PetAdoption.Controllers
 {
-    public class UsuarioController : Controller
+    public class AbrigoController : Controller
     {
-
         PetAdoptionContextEntities1 db = new PetAdoptionContextEntities1();
 
         public ActionResult Index()
         {
-            return View(db.Usuario.ToList());
+            return View(db.Abrigo.ToList());
         }
 
         public ActionResult Create()
@@ -24,67 +23,67 @@ namespace PetAdoption.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Usuario usuario)
+        public ActionResult Create(Abrigo abrigo)
         {
             if (ModelState.IsValid)
             {
-                db.Usuario.Add(usuario);
+                db.Abrigo.Add(abrigo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(usuario);
+            return View(abrigo);
         }
 
         public ActionResult Edit(int? id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            Abrigo abrigo = db.Abrigo.Find(id);
+            if (abrigo == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(abrigo);
         }
 
         [HttpPost]
-        public ActionResult Edit(Usuario usuario)
+        public ActionResult Edit(Abrigo abrigo)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuario).State = EntityState.Modified;
+                db.Entry(abrigo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(usuario);
+            return View(abrigo);
         }
 
         public ActionResult Delete(int? id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            Abrigo abrigo = db.Abrigo.Find(id);
+            if (abrigo == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(abrigo);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            db.Usuario.Remove(usuario);
+            Abrigo abrigo = db.Abrigo.Find(id);
+            db.Abrigo.Remove(abrigo);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult Details(int? id)
         {
-            var usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            var abrigo = db.Abrigo.Find(id);
+            if (abrigo == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(abrigo);
         }
     }
 }

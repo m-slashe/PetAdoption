@@ -55,12 +55,23 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -132,32 +143,59 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AbrigoController.cs" />
     <Compile Include="Controllers\AutenticacaoController.cs" />
+    <Compile Include="Controllers\EspecieController.cs" />
     <Compile Include="Controllers\GestaoCookie.cs" />
     <Compile Include="Controllers\GestaoUsuario.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RacasController.cs" />
+    <Compile Include="Controllers\PetController.cs" />
+    <Compile Include="Controllers\PorteController.cs" />
+    <Compile Include="Controllers\RacaController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906042343108_InitialCreate.cs" />
-    <Compile Include="Migrations\201906042343108_InitialCreate.Designer.cs">
-      <DependentUpon>201906042343108_InitialCreate.cs</DependentUpon>
+    <Compile Include="Models\Abrigo.cs">
+      <DependentUpon>DatabaseContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906050011094_Teste.cs" />
-    <Compile Include="Migrations\201906050011094_Teste.Designer.cs">
-      <DependentUpon>201906050011094_Teste.cs</DependentUpon>
+    <Compile Include="Models\AbrigoMetadado.cs" />
+    <Compile Include="Models\DatabaseContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Abrigo.cs" />
-    <Compile Include="Models\DatabaseContext.cs" />
-    <Compile Include="Models\Especie.cs" />
-    <Compile Include="Models\Pet.cs" />
-    <Compile Include="Models\Porte.cs" />
-    <Compile Include="Models\Raca.cs" />
-    <Compile Include="Models\Sexo.cs" />
-    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\DatabaseContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DatabaseContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Especie.cs">
+      <DependentUpon>DatabaseContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EspecieMetadado.cs" />
+    <Compile Include="Models\Pet.cs">
+      <DependentUpon>DatabaseContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PetMetadado.cs" />
+    <Compile Include="Models\Porte.cs">
+      <DependentUpon>DatabaseContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PorteMetadado.cs" />
+    <Compile Include="Models\Raca.cs">
+      <DependentUpon>DatabaseContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RacaMetadado.cs" />
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>DatabaseContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsuarioMetadado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,10 +207,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\DatabaseContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseContext.edmx</DependentUpon>
+      <LastGenOutput>DatabaseContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DatabaseContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseContext.edmx</DependentUpon>
+      <LastGenOutput>DatabaseContext.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\Autenticacao.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="readme.md" />
+    <EntityDeploy Include="Models\DatabaseContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DatabaseContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DatabaseContext.edmx.diagram">
+      <DependentUpon>DatabaseContext.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -195,21 +250,36 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Create.cshtml" />
-    <Content Include="Views\Racas\Create.cshtml" />
-    <Content Include="Views\Racas\Delete.cshtml" />
-    <Content Include="Views\Racas\Details.cshtml" />
-    <Content Include="Views\Racas\Edit.cshtml" />
-    <Content Include="Views\Racas\Index.cshtml" />
+    <Content Include="Views\Raca\Index.cshtml" />
+    <Content Include="Views\Raca\Create.cshtml" />
+    <Content Include="Views\Raca\Details.cshtml" />
+    <Content Include="Views\Raca\Edit.cshtml" />
+    <Content Include="Views\Raca\Delete.cshtml" />
+    <Content Include="Views\Abrigo\Index.cshtml" />
+    <Content Include="Views\Abrigo\Create.cshtml" />
+    <Content Include="Views\Abrigo\Edit.cshtml" />
+    <Content Include="Views\Abrigo\Delete.cshtml" />
+    <Content Include="Views\Abrigo\Details.cshtml" />
+    <Content Include="Views\Especie\Index.cshtml" />
+    <Content Include="Views\Especie\Create.cshtml" />
+    <Content Include="Views\Especie\Edit.cshtml" />
+    <Content Include="Views\Especie\Delete.cshtml" />
+    <Content Include="Views\Especie\Details.cshtml" />
+    <Content Include="Views\Pet\Index.cshtml" />
+    <Content Include="Views\Pet\Create.cshtml" />
+    <Content Include="Views\Pet\Edit.cshtml" />
+    <Content Include="Views\Pet\Delete.cshtml" />
+    <Content Include="Views\Pet\Details.cshtml" />
+    <Content Include="Views\Porte\Index.cshtml" />
+    <Content Include="Views\Porte\Create.cshtml" />
+    <Content Include="Views\Porte\Edit.cshtml" />
+    <Content Include="Views\Porte\Delete.cshtml" />
+    <Content Include="Views\Porte\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Autenticacao\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -225,12 +295,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906042343108_InitialCreate.resx">
-      <DependentUpon>201906042343108_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906050011094_Teste.resx">
-      <DependentUpon>201906050011094_Teste.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
