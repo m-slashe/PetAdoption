@@ -36,6 +36,10 @@ namespace PetAdoption.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.IdAbrigo = new SelectList(db.Abrigo, "Id", "Nome", pet.IdAbrigo);
+            ViewBag.IdEspecie = new SelectList(db.Especie, "Id", "Nome", pet.IdEspecie);
+            ViewBag.IdPorte = new SelectList(db.Porte, "Id", "Nome", pet.IdPorte);
+            ViewBag.IdRaca = new SelectList(db.Raca, "Id", "Nome", pet.IdRaca);
             return View(pet);
         }
 
@@ -46,6 +50,10 @@ namespace PetAdoption.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.IdAbrigo = new SelectList(db.Abrigo, "Id", "Nome", pet.IdAbrigo);
+            ViewBag.IdEspecie = new SelectList(db.Especie, "Id", "Nome", pet.IdEspecie);
+            ViewBag.IdPorte = new SelectList(db.Porte, "Id", "Nome", pet.IdPorte);
+            ViewBag.IdRaca = new SelectList(db.Raca, "Id", "Nome", pet.IdRaca);
             return View(pet);
         }
 
@@ -58,6 +66,10 @@ namespace PetAdoption.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.IdAbrigo = new SelectList(db.Abrigo, "Id", "Nome", pet.IdAbrigo);
+            ViewBag.IdEspecie = new SelectList(db.Especie, "Id", "Nome", pet.IdEspecie);
+            ViewBag.IdPorte = new SelectList(db.Porte, "Id", "Nome", pet.IdPorte);
+            ViewBag.IdRaca = new SelectList(db.Raca, "Id", "Nome", pet.IdRaca);
             return View(pet);
         }
 

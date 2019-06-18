@@ -10,13 +10,12 @@
 namespace PetAdoption.Models
 {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class Pet
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public byte[] DataDeNascimento { get; set; }
+        public Nullable<System.DateTime> DataDeNascimento { get; set; }
         public string Sexo { get; set; }
         public string Historia { get; set; }
         public Nullable<int> IdRaca { get; set; }

@@ -60,7 +60,7 @@ CREATE TABLE [dbo].[Pet]
 (
 	[Id] INT IDENTITY(1,1) PRIMARY KEY, 
     [Nome] NVARCHAR(50) NULL,
-	[DataDeNascimento] TIMESTAMP NULL,
+	[DataDeNascimento] DATE NULL,
 	[Sexo] NVARCHAR(50) NULL,
 	[Historia] NVARCHAR(MAX) NULL,
 	[IdRaca] INT NULL,

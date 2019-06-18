@@ -25,7 +25,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nome" Type="nvarchar" MaxLength="50" />
-          <Property Name="DataDeNascimento" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="DataDeNascimento" Type="date" />
           <Property Name="Sexo" Type="nvarchar" MaxLength="50" />
           <Property Name="Historia" Type="nvarchar(max)" />
           <Property Name="IdRaca" Type="int" />
@@ -56,7 +56,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Senha" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__Pet__IdAbrigo__1ED998B2">
+        <Association Name="FK__Pet__IdAbrigo__49C3F6B7">
           <End Role="Abrigo" Type="Self.Abrigo" Multiplicity="0..1" />
           <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
           <ReferentialConstraint>
@@ -68,7 +68,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Pet__IdEspecie__1CF15040">
+        <Association Name="FK__Pet__IdEspecie__47DBAE45">
           <End Role="Especie" Type="Self.Especie" Multiplicity="0..1" />
           <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
           <ReferentialConstraint>
@@ -80,7 +80,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Pet__IdPorte__1DE57479">
+        <Association Name="FK__Pet__IdPorte__48CFD27E">
           <End Role="Porte" Type="Self.Porte" Multiplicity="0..1" />
           <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
           <ReferentialConstraint>
@@ -92,7 +92,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Pet__IdRaca__1BFD2C07">
+        <Association Name="FK__Pet__IdRaca__46E78A0C">
           <End Role="Raca" Type="Self.Raca" Multiplicity="0..1" />
           <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
           <ReferentialConstraint>
@@ -111,19 +111,19 @@
           <EntitySet Name="Porte" EntityType="Self.Porte" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Raca" EntityType="Self.Raca" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Pet__IdAbrigo__1ED998B2" Association="Self.FK__Pet__IdAbrigo__1ED998B2">
+          <AssociationSet Name="FK__Pet__IdAbrigo__49C3F6B7" Association="Self.FK__Pet__IdAbrigo__49C3F6B7">
             <End Role="Abrigo" EntitySet="Abrigo" />
             <End Role="Pet" EntitySet="Pet" />
           </AssociationSet>
-          <AssociationSet Name="FK__Pet__IdEspecie__1CF15040" Association="Self.FK__Pet__IdEspecie__1CF15040">
+          <AssociationSet Name="FK__Pet__IdEspecie__47DBAE45" Association="Self.FK__Pet__IdEspecie__47DBAE45">
             <End Role="Especie" EntitySet="Especie" />
             <End Role="Pet" EntitySet="Pet" />
           </AssociationSet>
-          <AssociationSet Name="FK__Pet__IdPorte__1DE57479" Association="Self.FK__Pet__IdPorte__1DE57479">
+          <AssociationSet Name="FK__Pet__IdPorte__48CFD27E" Association="Self.FK__Pet__IdPorte__48CFD27E">
             <End Role="Porte" EntitySet="Porte" />
             <End Role="Pet" EntitySet="Pet" />
           </AssociationSet>
-          <AssociationSet Name="FK__Pet__IdRaca__1BFD2C07" Association="Self.FK__Pet__IdRaca__1BFD2C07">
+          <AssociationSet Name="FK__Pet__IdRaca__46E78A0C" Association="Self.FK__Pet__IdRaca__46E78A0C">
             <End Role="Raca" EntitySet="Raca" />
             <End Role="Pet" EntitySet="Pet" />
           </AssociationSet>
@@ -139,7 +139,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdAbrigo__1ED998B2" FromRole="Abrigo" ToRole="Pet" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdAbrigo__49C3F6B7" FromRole="Abrigo" ToRole="Pet" />
         </EntityType>
         <EntityType Name="Especie">
           <Key>
@@ -147,7 +147,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdEspecie__1CF15040" FromRole="Especie" ToRole="Pet" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdEspecie__47DBAE45" FromRole="Especie" ToRole="Pet" />
         </EntityType>
         <EntityType Name="Pet">
           <Key>
@@ -155,17 +155,17 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DataDeNascimento" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="DataDeNascimento" Type="DateTime" Precision="0" />
           <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Historia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IdRaca" Type="Int32" />
           <Property Name="IdEspecie" Type="Int32" />
           <Property Name="IdPorte" Type="Int32" />
           <Property Name="IdAbrigo" Type="Int32" />
-          <NavigationProperty Name="Abrigo" Relationship="Self.FK__Pet__IdAbrigo__1ED998B2" FromRole="Pet" ToRole="Abrigo" />
-          <NavigationProperty Name="Especie" Relationship="Self.FK__Pet__IdEspecie__1CF15040" FromRole="Pet" ToRole="Especie" />
-          <NavigationProperty Name="Porte" Relationship="Self.FK__Pet__IdPorte__1DE57479" FromRole="Pet" ToRole="Porte" />
-          <NavigationProperty Name="Raca" Relationship="Self.FK__Pet__IdRaca__1BFD2C07" FromRole="Pet" ToRole="Raca" />
+          <NavigationProperty Name="Abrigo" Relationship="Self.FK__Pet__IdAbrigo__49C3F6B7" FromRole="Pet" ToRole="Abrigo" />
+          <NavigationProperty Name="Especie" Relationship="Self.FK__Pet__IdEspecie__47DBAE45" FromRole="Pet" ToRole="Especie" />
+          <NavigationProperty Name="Porte" Relationship="Self.FK__Pet__IdPorte__48CFD27E" FromRole="Pet" ToRole="Porte" />
+          <NavigationProperty Name="Raca" Relationship="Self.FK__Pet__IdRaca__46E78A0C" FromRole="Pet" ToRole="Raca" />
         </EntityType>
         <EntityType Name="Porte">
           <Key>
@@ -173,7 +173,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdPorte__1DE57479" FromRole="Porte" ToRole="Pet" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdPorte__48CFD27E" FromRole="Porte" ToRole="Pet" />
         </EntityType>
         <EntityType Name="Raca">
           <Key>
@@ -181,7 +181,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdRaca__1BFD2C07" FromRole="Raca" ToRole="Pet" />
+          <NavigationProperty Name="Pet" Relationship="Self.FK__Pet__IdRaca__46E78A0C" FromRole="Raca" ToRole="Pet" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -192,7 +192,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Senha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <Association Name="FK__Pet__IdAbrigo__1ED998B2">
+        <Association Name="FK__Pet__IdAbrigo__49C3F6B7">
           <End Role="Abrigo" Type="Self.Abrigo" Multiplicity="0..1" />
           <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
           <ReferentialConstraint>
@@ -204,7 +204,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Pet__IdEspecie__1CF15040">
+        <Association Name="FK__Pet__IdEspecie__47DBAE45">
           <End Role="Especie" Type="Self.Especie" Multiplicity="0..1" />
           <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
           <ReferentialConstraint>
@@ -216,7 +216,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Pet__IdPorte__1DE57479">
+        <Association Name="FK__Pet__IdPorte__48CFD27E">
           <End Role="Porte" Type="Self.Porte" Multiplicity="0..1" />
           <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
           <ReferentialConstraint>
@@ -228,7 +228,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Pet__IdRaca__1BFD2C07">
+        <Association Name="FK__Pet__IdRaca__46E78A0C">
           <End Role="Raca" Type="Self.Raca" Multiplicity="0..1" />
           <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
           <ReferentialConstraint>
@@ -247,19 +247,19 @@
           <EntitySet Name="Porte" EntityType="Self.Porte" />
           <EntitySet Name="Raca" EntityType="Self.Raca" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
-          <AssociationSet Name="FK__Pet__IdAbrigo__1ED998B2" Association="Self.FK__Pet__IdAbrigo__1ED998B2">
+          <AssociationSet Name="FK__Pet__IdAbrigo__49C3F6B7" Association="Self.FK__Pet__IdAbrigo__49C3F6B7">
             <End Role="Abrigo" EntitySet="Abrigo" />
             <End Role="Pet" EntitySet="Pet" />
           </AssociationSet>
-          <AssociationSet Name="FK__Pet__IdEspecie__1CF15040" Association="Self.FK__Pet__IdEspecie__1CF15040">
+          <AssociationSet Name="FK__Pet__IdEspecie__47DBAE45" Association="Self.FK__Pet__IdEspecie__47DBAE45">
             <End Role="Especie" EntitySet="Especie" />
             <End Role="Pet" EntitySet="Pet" />
           </AssociationSet>
-          <AssociationSet Name="FK__Pet__IdPorte__1DE57479" Association="Self.FK__Pet__IdPorte__1DE57479">
+          <AssociationSet Name="FK__Pet__IdPorte__48CFD27E" Association="Self.FK__Pet__IdPorte__48CFD27E">
             <End Role="Porte" EntitySet="Porte" />
             <End Role="Pet" EntitySet="Pet" />
           </AssociationSet>
-          <AssociationSet Name="FK__Pet__IdRaca__1BFD2C07" Association="Self.FK__Pet__IdRaca__1BFD2C07">
+          <AssociationSet Name="FK__Pet__IdRaca__46E78A0C" Association="Self.FK__Pet__IdRaca__46E78A0C">
             <End Role="Raca" EntitySet="Raca" />
             <End Role="Pet" EntitySet="Pet" />
           </AssociationSet>

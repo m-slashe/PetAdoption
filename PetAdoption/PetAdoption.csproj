@@ -158,6 +158,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Helpers\TitleHelper.cs" />
     <Compile Include="Models\Abrigo.cs">
       <DependentUpon>DatabaseContext.tt</DependentUpon>
     </Compile>
@@ -269,11 +270,6 @@
     <Content Include="Views\Especie\Edit.cshtml" />
     <Content Include="Views\Especie\Delete.cshtml" />
     <Content Include="Views\Especie\Details.cshtml" />
-    <Content Include="Views\Pet\Index.cshtml" />
-    <Content Include="Views\Pet\Create.cshtml" />
-    <Content Include="Views\Pet\Edit.cshtml" />
-    <Content Include="Views\Pet\Delete.cshtml" />
-    <Content Include="Views\Pet\Details.cshtml" />
     <Content Include="Views\Porte\Index.cshtml" />
     <Content Include="Views\Porte\Create.cshtml" />
     <Content Include="Views\Porte\Edit.cshtml" />
@@ -289,6 +285,11 @@
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Usuario\Delete.cshtml" />
     <Content Include="Views\Usuario\Details.cshtml" />
+    <Content Include="Views\Pet\Create.cshtml" />
+    <Content Include="Views\Pet\Delete.cshtml" />
+    <Content Include="Views\Pet\Details.cshtml" />
+    <Content Include="Views\Pet\Edit.cshtml" />
+    <Content Include="Views\Pet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

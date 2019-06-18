@@ -16,10 +16,10 @@ namespace PetAdoption.Models
         [StringLength(30, ErrorMessage = "O nome do Pet só pode ter 30 caracteres")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "O nome do Pet é obrigatório.")]
+        [Required(ErrorMessage = "A Data de Nascimento do Pet é obrigatória.")]
         public DateTime DataDeNascimento { get; set; }
 
-        [Required(ErrorMessage = "O nome do Pet é obrigatório.")]
+        [Required(ErrorMessage = "O sexo do Pet é obrigatório.")]
         [StringLength(1, ErrorMessage = "O sexo do Pet só pode ter 1 caracteres")]
         public string Sexo { get; set; }
 
