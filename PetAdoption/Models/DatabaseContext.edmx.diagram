@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="96d9476b68f847618a4e02c15e241a60" Name="Diagram1">
+      <Diagram DiagramId="496ee413aeb349c5b017b5f5afd8ab58" Name="Diagram1">
         <EntityTypeShape EntityType="PetAdoptionContextModel.Abrigo" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="PetAdoptionContextModel.Especie" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PetAdoptionContextModel.Pet" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="PetAdoptionContextModel.Porte" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PetAdoptionContextModel.Raca" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PetAdoptionContextModel.Usuario" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="PetAdoptionContextModel.FK__Pet__IdAbrigo__21B6055D" ManuallyRouted="false" />
-        <AssociationConnector Association="PetAdoptionContextModel.FK__Pet__IdEspecie__1FCDBCEB" ManuallyRouted="false" />
-        <AssociationConnector Association="PetAdoptionContextModel.FK__Pet__IdPorte__20C1E124" ManuallyRouted="false" />
-        <AssociationConnector Association="PetAdoptionContextModel.FK__Pet__IdRaca__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="PetAdoptionContextModel.FK__Pet__IdAbrigo__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="PetAdoptionContextModel.FK__Pet__IdEspecie__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="PetAdoptionContextModel.FK__Pet__IdPorte__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="PetAdoptionContextModel.FK__Pet__IdRaca__1BFD2C07" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

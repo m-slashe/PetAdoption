@@ -11,7 +11,7 @@ namespace PetAdoption.Controllers
     public class UsuarioController : Controller
     {
 
-        PetAdoptionContextEntities1 db = new PetAdoptionContextEntities1();
+        PetAdoptionContextEntities db = new PetAdoptionContextEntities();
 
         public ActionResult Index()
         {

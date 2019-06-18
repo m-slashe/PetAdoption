@@ -10,11 +10,11 @@ namespace PetAdoption.Controllers
 {
     public class EspecieController : Controller
     {
-        PetAdoptionContextEntities1 db = new PetAdoptionContextEntities1();
+        PetAdoptionContextEntities db = new PetAdoptionContextEntities();
 
         public ActionResult Index()
         {
-            return View(db.Usuario.ToList());
+            return View(db.Especie.ToList());
         }
 
         public ActionResult Create()

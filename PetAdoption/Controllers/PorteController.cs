@@ -10,11 +10,11 @@ namespace PetAdoption.Controllers
 {
     public class PorteController : Controller
     {
-        PetAdoptionContextEntities1 db = new PetAdoptionContextEntities1();
+        PetAdoptionContextEntities db = new PetAdoptionContextEntities();
 
         public ActionResult Index()
         {
-            return View(db.Abrigo.ToList());
+            return View(db.Porte.ToList());
         }
 
         public ActionResult Create()

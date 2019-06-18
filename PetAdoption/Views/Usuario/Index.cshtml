@@ -1,24 +1,45 @@
 ﻿@model IEnumerable<PetAdoption.Models.Usuario>
 
 @{
-    ViewBag.Title = "Usuario";
+    ViewBag.Title = "Index";
 }
 
-<h2>Usuarios</h2>
+<h2>Index</h2>
+
 <p>
-    @Html.ActionLink("Novo", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
-<table>
-       <tr>
-           <th>
-               @Html.DisplayNameFor(model => model.Login)
-           </th>
-       </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>Teste</td>
-            <td>Seila</td>
-        </tr>
-    }
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Senha)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Senha)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
 </table>

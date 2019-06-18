@@ -11,7 +11,7 @@ namespace PetAdoption.Controllers
         {
             try
             {
-                PetAdoptionContextEntities1 db = new PetAdoptionContextEntities1();
+                PetAdoptionContextEntities db = new PetAdoptionContextEntities();
                 var usuario = db.Usuario.Where(x => x.Email == email && x.Senha == senha).SingleOrDefault();
                 if(usuario == null)
                 {

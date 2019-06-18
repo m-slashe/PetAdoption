@@ -10,7 +10,7 @@ namespace PetAdoption.Controllers
 {
     public class PetController : Controller
     {
-        PetAdoptionContextEntities1 db = new PetAdoptionContextEntities1();
+        PetAdoptionContextEntities db = new PetAdoptionContextEntities();
 
         public ActionResult Index()
         {
@@ -19,6 +19,10 @@ namespace PetAdoption.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.IdRaca = new SelectList(db.Raca, "Id", "Nome");
+            ViewBag.IdEspecie = new SelectList(db.Especie, "Id", "Nome");
+            ViewBag.IdPorte = new SelectList(db.Porte, "Id", "Nome");
+            ViewBag.IdAbrigo = new SelectList(db.Abrigo, "Id", "Nome");
             return View();
         }
 
